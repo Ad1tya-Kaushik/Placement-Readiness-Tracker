@@ -67,3 +67,21 @@ students.append({
     "verbal": verbal,
     "coding": coding
 })
+
+def average(student):
+    total = (
+        student["aptitude"]
+        + student["verbal"]
+        + student["coding"]
+    )
+    return total / 3
+
+def grade(avg):
+    if avg >= 80:
+        return "A"
+    elif avg >= 60:
+        return "B"
+    elif avg >= 40:
+        return "C"
+    else:
+        return "Needs practice"
