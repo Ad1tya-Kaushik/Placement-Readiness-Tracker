@@ -85,3 +85,50 @@ def grade(avg):
         return "C"
     else:
         return "Needs practice"
+
+def top_scorer(students):
+    return max(students, key=average)
+
+def needs_practice(students, limit=40):
+    result = []
+    for student in students:
+        if average(student) < limit:
+            result.append(student)
+    return result
+
+print("\nPLACEMENT READINESS REPORT")
+print("-" * 75)
+
+print(
+    f"{'Name':<12}"
+    f"{'Roll No':<12}"
+    f"{'Average':<12}"
+    f"{'Grade':<20}"
+)
+
+print("-" * 75)
+
+for student in students:
+    avg = average(student)
+    student_grade = grade(avg)
+
+    print(
+        f"{student['name']:<12}"
+        f"{student['roll_no']:<12}"
+        f"{avg:<12.2f}"
+        f"{student_grade:<20}"
+    )
+
+print("-" * 75)
+
+topper = top_scorer(students)
+print("\nTop Scorer:", topper["name"])
+print("Highest Average:", round(average(topper), 2))
+
+print("\nStudents Who Need Practice:")
+weak_students = needs_practice(students)
+if weak_students:
+    for student in weak_students:
+        print(student["name"], "-", round(average(student), 2))
+else:
+    print("No students need extra practice.")
