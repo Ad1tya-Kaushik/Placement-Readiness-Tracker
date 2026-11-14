@@ -35,3 +35,35 @@ students = [
         "coding": 48
     }
 ]
+
+name = input("Enter student name: ")
+roll_no = input("Enter roll number: ")
+
+while True:
+    aptitude = int(input("Enter aptitude score: "))
+    if 0 <= aptitude <= 100:
+        break
+    else:
+        print("Invalid score! Enter between 0 and 100.")
+
+while True:
+    verbal = int(input("Enter verbal score: "))
+    if 0 <= verbal <= 100:
+        break
+    else:
+        print("Invalid score! Enter between 0 and 100.")
+
+while True:
+    coding = int(input("Enter coding score: "))
+    if 0 <= coding <= 100:
+        break
+    else:
+        print("Invalid score! Enter between 0 and 100.")
+
+students.append({
+    "name": name,
+    "roll_no": roll_no,
+    "aptitude": aptitude,
+    "verbal": verbal,
+    "coding": coding
+})
